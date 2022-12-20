@@ -44,4 +44,34 @@ function handleSearch() {
                fetch(user.repos_url, {
                method: 'GET',
                header:{
+                'Content-Type': 'application/json',
+                Accept: 'application/vnd.github.v3+json'
+            },
+            body: JSON.stringify()
+         })
+            .then(res => res.json())
+            .then(data => {
+          
+            data.forEach(repo => {
+               
+                 let repoCard = document.createElement('li')
+                 repoCard.innerHTML = `
+                 <h4> ${repo.name} </h4>
+                 <p> ${repo.html_url}</p>
+                 `
+                 document.querySelector('#repos-list').appendChild(repoCard)
+                 
+            })
+         })
+           
+        })
+
+
+ })
+
+})
+}
+})
+})  
+
   
